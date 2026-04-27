@@ -1,3 +1,4 @@
+import 'package:civicspot/core/routes/app_routes.dart';
 import 'package:civicspot/core/theme/app_colors.dart';
 import 'package:civicspot/features/home/controllers/home_controllers.dart';
 import 'package:civicspot/shared/widgets/category_chip.dart';
@@ -144,7 +145,9 @@ class HomeView extends GetView<HomeControllers> {
             left: 24,
             child:
           ElevatedButton(
-              onPressed: (){},
+              onPressed: (){
+                Get.toNamed(AppRoutes.reportIssue);
+              },
               child: Text("Report Issue"),
           ),
           ),

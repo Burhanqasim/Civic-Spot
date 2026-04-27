@@ -32,7 +32,6 @@ class HomeControllers extends GetxController{
   final Rx<String> selectedCategory = "All".obs;
   final RxSet<Marker> markers = <Marker>{}.obs;
   final List<String> categories = [
-    "All",
     "Garbage",
     "Pothole",
     "Water leakage",
