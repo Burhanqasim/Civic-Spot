@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "402921769540",
+    "project_id": "khola-394f4",
+    "storage_bucket": "khola-394f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402921769540:android:60efc5655df94255c38a11",
+        "android_client_info": {
+          "package_name": "com.dressly.dressly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0dfgEhC4mY_v1oQE98fX4GmylNgWWCfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402921769540:android:23ba69f0f34d1453c38a11",
+        "android_client_info": {
+          "package_name": "com.example.civicspot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0dfgEhC4mY_v1oQE98fX4GmylNgWWCfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
