@@ -16,9 +16,20 @@ class HomeView extends GetView<HomeControllers> {
       body: Stack(
         children: [
           // Placeholder for Google Map
-          GoogleMap(initialCameraPosition: CameraPosition(target: LatLng(25.364488, 68.316214), zoom: 14),
-          onMapCreated: controller.onMapCreated,
+          Obx(()=>
+              GoogleMap(
+                initialCameraPosition: CameraPosition(
+                    target: LatLng(25.364488, 68.316214),
+                    zoom: 14
+                ),
+            onMapCreated: controller.onMapCreated,
             myLocationButtonEnabled: true,
+            markers: controller.markers.toSet(),
+                zoomControlsEnabled: false,
+                myLocationEnabled: true,
+                zoomGesturesEnabled: true
+                ,
+          ),
           ),
           // Top Layer
           Positioned(

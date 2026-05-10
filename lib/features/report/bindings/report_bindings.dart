@@ -1,5 +1,6 @@
 import 'package:civicspot/features/home/repository/issue_repository.dart';
 import 'package:civicspot/features/report/controllers/report_controllers.dart';
+import 'package:civicspot/features/report/repositories/storage_repository.dart';
 import 'package:get/get.dart';
 
 class ReportBindings extends Bindings {
@@ -8,6 +9,7 @@ class ReportBindings extends Bindings {
     // TODO: implement dependencies
     Get.lazyPut<ReportControllers>(()=> ReportControllers());
     Get.lazyPut<IssueRepository>(()=> IssueRepository());
+    Get.lazyPut<StorageRepository>(()=> StorageRepository());
   }
 
 }

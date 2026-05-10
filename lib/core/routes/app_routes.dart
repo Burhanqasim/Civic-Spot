@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static const register = "/register";
   static const login = "/login";
   static const reportIssue = "/report";
+  static const pickLocation = "/pick-location";
 }

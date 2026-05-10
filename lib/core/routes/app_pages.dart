@@ -5,7 +5,10 @@ import 'package:civicspot/features/report/bindings/report_bindings.dart';
 import 'package:civicspot/features/report/view/report_view.dart';
 import 'package:civicspot/features/splash/bindings/splash_bindings.dart';
 import 'package:civicspot/features/splash/views/splash_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../features/report/view/location_picker_view.dart';
 
 class AppPages {
   static const initialRoute = AppRoutes.splash;
@@ -25,6 +28,10 @@ class AppPages {
         name: AppRoutes.reportIssue,
         page: ()=> ReportView(),
       binding: ReportBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.pickLocation,
+      page: ()=> LocationPickerView(),
     ),
   ];
 
