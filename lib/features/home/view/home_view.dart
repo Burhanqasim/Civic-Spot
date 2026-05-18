@@ -1,6 +1,7 @@
 import 'package:civicspot/core/routes/app_routes.dart';
 import 'package:civicspot/core/theme/app_colors.dart';
 import 'package:civicspot/features/home/controllers/home_controllers.dart';
+import 'package:civicspot/features/home/model/issue_model.dart';
 import 'package:civicspot/shared/widgets/category_chip.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -162,7 +163,94 @@ class HomeView extends GetView<HomeControllers> {
               child: Text("Report Issue"),
           ),
           ),
+          // IssueListTile
+          //Issue Feed
+          Positioned(
+              bottom: 90,
+              left: 16,
+              right: 16,
+              child: Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: AppColors.paper,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.08),
+                      blurRadius: 10,
+                    )
+                  ]
+                ),
+                child: Obx(() {
+                  if(controller.filteredIssues.isEmpty){
+                    return Center(
+                      child: Text("NO issue found for this category"),
+                    );
+                  }
+                  return Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text("Recent Issues"),
+                      SizedBox(height: 12,),
+                      ...controller.filteredIssues.take(3).map((issue) {
+                        return IssueListTile(
+                            issue: issue,
+                            onTap: (){
+                              Get.toNamed(AppRoutes.issueDetail, arguments: issue);
+                            });
+                      })
+                    ],
+                  );
+                }),
+              ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class IssueListTile extends StatelessWidget {
+  const IssueListTile({
+    required this.issue,
+    required this.onTap,
+    super.key,
+  });
+
+  final IssueModel issue;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: AppColors.background,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: AppColors.textSecondary.withValues(alpha: 0.15),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: .start,
+          children: [
+            Text(issue.title, style: Theme.of(context).textTheme.bodyMedium?.
+            copyWith(fontWeight: FontWeight.w700)),
+            const SizedBox(height: 4,),
+            Text(issue.category, style: Theme.of(context).textTheme.bodyMedium?.
+            copyWith(fontWeight: FontWeight.w600)),
+            const SizedBox(height: 8,),
+            Text(issue.description,
+                maxLines: 2,
+                overflow: .ellipsis,
+                style: Theme.of(context).textTheme.bodyMedium),
+          ],
+        ),
+
       ),
     );
   }
